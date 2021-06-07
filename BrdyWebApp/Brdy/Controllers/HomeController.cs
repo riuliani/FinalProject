@@ -1,4 +1,5 @@
 ﻿using Brdy.Models;
+using Brdy.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,10 +13,12 @@ namespace Brdy.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IBirdyServices _service;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IBirdyServices service)
         {
             _logger = logger;
+            _service = service;
         }
 
         public IActionResult Index()
@@ -26,6 +29,19 @@ namespace Brdy.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> SearchBirdByLocation(SightingDetail model)
+        {
+            var result = await _service.GetLocationAsync(model.locName);
+            return View(result);
+        }
+        [HttpGet]
+        public async Task<IActionResult> SearchBirdBySpecies(SightingDetail model)
+        {
+            var result = await _service.GetSpeciesAsync(model.comName);
+            return View(result);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
