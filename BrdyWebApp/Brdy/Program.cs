@@ -13,7 +13,16 @@ namespace Brdy
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            /*var host =*/ CreateHostBuilder(args).Build().Run();
+
+            //using (var scope = host.Services.CreateScope())
+            //{
+            //    var services = scope.ServiceProvider;
+            //    var context = services.GetRequiredService<TourDbContext>();
+            //    DbInitializer.Initialize(context);
+            //}
+
+            //host.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

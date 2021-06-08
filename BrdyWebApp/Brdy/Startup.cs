@@ -1,4 +1,5 @@
 using Brdy.Data;
+using Brdy.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,6 +35,10 @@ namespace Brdy
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddHttpClient<IBirdyServices, BirdyServices>(client =>
+            {
+                client.BaseAddress = new Uri("https://api.ebird.org/v2/");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
