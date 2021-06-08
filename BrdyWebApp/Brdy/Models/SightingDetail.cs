@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,6 +12,7 @@ namespace Brdy.Models
         public string comName { get; set; }
         public string sciName { get; set; }
         public string locId { get; set; }
+        [Display(Name = "") ]
         public string locName { get; set; }
         public string obsDt { get; set; }
         public int howMany { get; set; }
