@@ -16,13 +16,13 @@ namespace Brdy.Services
             _client = client;
         }
 
-        public async Task<SightingDetail> GetLocationAsync(string locName)
+        public async Task<IEnumerable <SightingDetail>> GetLocationAsync(string locName)
         {
-            return await _client.GetFromJsonAsync<SightingDetail>($"/data/obs/{locName}/recent");
+            return await _client.GetFromJsonAsync<IEnumerable<SightingDetail>>($"data/obs/{locName}/recent");
         }
-        public async Task<SightingDetail> GetSpeciesAsync(string comName)
+        public async Task<IEnumerable<SightingDetail>> GetSpeciesAsync(string comName)
         {
-            return await _client.GetFromJsonAsync<SightingDetail>($"/data/obs/{comName}/recent");
+            return await _client.GetFromJsonAsync<IEnumerable<SightingDetail>>($"data/obs/{comName}/recent");
         }
     }
 }

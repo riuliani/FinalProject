@@ -1,4 +1,4 @@
-﻿@model Brdy.Models.SightingDetail
+﻿@model IEnumerable<Brdy.Models.SightingDetail>
 
 @{
     ViewData["Title"] = "SearchBirdByLocation";
@@ -6,91 +6,102 @@
 
 <h1>SearchBirdByLocation</h1>
 
-<div>
-    <h4>SightingDetail</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.speciesCode)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.speciesCode)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.comName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.comName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.sciName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.sciName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.locId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.locId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.locName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.locName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.obsDt)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.obsDt)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.howMany)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.howMany)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.lat)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.lat)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.lng)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.lng)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.obsValid)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.obsValid)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.obsReviewed)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.obsReviewed)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.locationPrivate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.locationPrivate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.subId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.subId)
-        </dd>
-    </dl>
-</div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
-</div>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.speciesCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.comName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sciName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.locId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.locName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.obsDt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.howMany)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lng)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.obsValid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.obsReviewed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.locationPrivate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.subId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.speciesCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.comName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sciName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.locId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.locName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.obsDt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.howMany)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lng)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.obsValid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.obsReviewed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.locationPrivate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.subId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

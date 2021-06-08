@@ -8,7 +8,7 @@ namespace Brdy.Data.Models
     public class Weather
     {
         public DateTime DateTime { get; set; }
-        public string Location { get; set; }
-
+        public double Temperature { get; set; }
+        public string Forecast { get; set; }
     }
 }
