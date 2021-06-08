@@ -1,0 +1,19 @@
+﻿body {
+
+
+   
+
+}
+
+
+.Heading {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bird {
+    height:30px;
+    width: 40px;
+}
