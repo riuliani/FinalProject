@@ -13,6 +13,5 @@ namespace Brdy.Data.Models
 
         public int BirdsId { get; set; }
         public BirdList BirdList { get; set; }
-
     }
 }

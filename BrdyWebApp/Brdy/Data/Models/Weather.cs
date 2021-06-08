@@ -9,9 +9,7 @@ namespace Brdy.Data.Models
     {
         public int WeatherId { get; set; }
         public DateTime DateTime { get; set; }
-        public string Location { get; set; }
-
-        public int BirdsId { get; set; }
-        public BirdList BirdList { get; set; }
+        public double Temperature { get; set; }
+        public string Forecast { get; set; }
     }
 }
