@@ -40,7 +40,7 @@ namespace Brdy.Controllers
         [HttpGet]
         public async Task<IActionResult> SearchBirdBySpecies(SightingDetail model)
         {
-            var result = await _service.GetSpeciesAsync(model.comName);
+            var result = await _service.GetSpeciesAsync(model.locName);
             return View(result);
         }
 

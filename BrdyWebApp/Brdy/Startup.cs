@@ -37,8 +37,10 @@ namespace Brdy
             services.AddRazorPages();
             services.AddHttpClient<IBirdyServices, BirdyServices>(client =>
             {
-                client.BaseAddress = new Uri("https://api.ebird.org/v2/data/obs");
-            });
+                client.BaseAddress = new Uri("https://api.ebird.org/v2/");
+                client.DefaultRequestHeaders.Add("x-ebirdapitoken", "e15qfde819pq");
+        });
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
