@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Brdy.Data.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,5 +13,10 @@ namespace Brdy.Data
             : base(options)
         {
         }
+
+        public DbSet<BirdList> Birds { get; set; }
+        public DbSet<Location> Locations { get; set; }
+        public DbSet<Weather> Weather { get; set; }
+
     }
 }
