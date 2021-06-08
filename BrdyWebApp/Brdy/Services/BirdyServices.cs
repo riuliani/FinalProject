@@ -20,9 +20,9 @@ namespace Brdy.Services
         {
             return await _client.GetFromJsonAsync<IEnumerable<SightingDetail>>($"data/obs/{locName}/recent");
         }
-        public async Task<SightingDetail> GetSpeciesAsync(string comName)
+        public async Task<IEnumerable<SightingDetail>> GetSpeciesAsync(string comName)
         {
-            return await _client.GetFromJsonAsync<SightingDetail>($"/data/obs/{comName}/recent");
+            return await _client.GetFromJsonAsync<IEnumerable<SightingDetail>>($"data/obs/{comName}/recent");
         }
     }
 }
