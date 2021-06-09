@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     @*<link rel="stylesheet" href="~/css/site.css" />*@
     <link rel="stylesheet" href="~/css/Home.css" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <style>
     </style>
 </head>
@@ -48,6 +49,8 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqIdprb3rLozalirJ1Ubfc4x15U0unu8U&callback=initMap&libraries=&v=weekly"
+            async></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
