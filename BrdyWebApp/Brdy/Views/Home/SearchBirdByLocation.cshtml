@@ -4,7 +4,8 @@
     ViewData["Title"] = "SearchBirdByLocation";
 }
 
-<h1>SearchBirdByLocation</h1>
+@*Probably name something else*@
+<h1 style="display: flex; justify-content: center;">Location Results</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -40,7 +41,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.obsValid)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.obsReviewed)
             </th>
             <th>
@@ -48,7 +49,7 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.subId)
-            </th>
+            </th>*@
             <th></th>
         </tr>
     </thead>
@@ -85,7 +86,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.obsValid)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.obsReviewed)
             </td>
             <td>
@@ -93,7 +94,7 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.subId)
-            </td>
+            </td>*@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
