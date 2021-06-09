@@ -14,6 +14,5 @@ namespace Brdy.Models
         public DateTime DateTime { get; set; }
         public double Temperature { get; set; }
         public string Forecast { get; set; }
-
     }
 }
