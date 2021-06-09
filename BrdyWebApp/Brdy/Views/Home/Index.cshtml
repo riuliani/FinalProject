@@ -5,6 +5,10 @@
 
 <style>
 
+    h1 {
+        position: relative;
+        top: 50px;
+    }
     .container {
         display: flex;
         justify-content: center;
@@ -41,8 +45,9 @@
 
 <form asp-controller="Home" asp-action="SearchBirdByLocation" method="get">
     <label asp-for="locName"></label>
-    <input asp-for="locName" />
-    <input type="submit" value="Search" class="btn btn-primary" />
+    @*Still dont know how i want to Display this*@
+    <input placeholder="Enter Location" asp-for="locName" />
+    <input type="submit" value="Search" class="btn btn-primary btn-sm" />
 </form>
 
 
