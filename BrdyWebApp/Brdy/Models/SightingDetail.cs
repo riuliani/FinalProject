@@ -15,14 +15,17 @@ namespace Brdy.Models
         public string sciName { get; set; }
         [Display(Name = "Location")]
         public string locId { get; set; }
-        [Display(Name = "") ]
+        [Display(Name = "")]
         public string locName { get; set; }
+        [Display(Name = "Observed")]
         public string obsDt { get; set; }
+        [Display(Name = "Time")]
         public int howMany { get; set; }
-        [Display(Name = "Lat")]
+        [Display(Name = "Spotted")]
         public float lat { get; set; }
-        [Display(Name = "Long")]
+        [Display(Name = "Lat")]
         public float lng { get; set; }
+        [Display(Name = "Long")]
         public bool obsValid { get; set; }
         public bool obsReviewed { get; set; }
         public bool locationPrivate { get; set; }
