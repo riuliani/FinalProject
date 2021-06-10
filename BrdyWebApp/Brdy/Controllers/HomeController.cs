@@ -35,7 +35,7 @@ namespace Brdy.Controllers
         public async Task<IActionResult> SearchBirdByLocation(SightingDetail model)
         {
             var result = await _service.GetLocationAsync(model.locName);
-            return View(result);
+            return View(result.OrderByDescending(x => x.howMany).Take(50));
         }
         [HttpGet]
         public async Task<IActionResult> SearchBirdBySpecies(SightingDetail model)
