@@ -11,11 +11,9 @@ namespace Brdy.Services
     public class BirdyServices : IBirdyServices
     {
         private readonly HttpClient _client;
-        private readonly HttpClient _client2;
-        public BirdyServices(HttpClient client, HttpClient client2)
+        public BirdyServices(HttpClient client)
         {
             _client = client;
-            _client2 = client2;
         }
 
         public async Task<IEnumerable<SightingDetail>> GetLocationAsync(string locName)
@@ -26,9 +24,9 @@ namespace Brdy.Services
         {
             return await _client.GetFromJsonAsync<IEnumerable<SightingDetail>>($"data/obs/{comName}/recent");
         }
-        public async Task<IEnumerable<Forecast>> GetForecast(float lat, float lon)
-        {
-            return await _client2.GetFromJsonAsync<IEnumerable<Forecast>>($"lat={lat}&lon={lon}");
-        }
+        //public async Task<IEnumerable<Forecast>> GetForecast(float lat, float lon)
+        //{
+        //    return await _client.GetFromJsonAsync<IEnumerable<Forecast>>($"lat={lat}&lon={lon}");
+        //}
     }
 }

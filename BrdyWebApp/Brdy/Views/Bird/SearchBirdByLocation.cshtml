@@ -24,9 +24,6 @@
                 @Html.DisplayNameFor(model => model.sciName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.locId)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.locName)
             </th>
             <th>
@@ -44,15 +41,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.obsValid)
             </th>
-            @*<th>
-                    @Html.DisplayNameFor(model => model.obsReviewed)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.locationPrivate)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.subId)
-                </th>*@
             <th></th>
         </tr>
     </thead>
@@ -61,16 +49,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.speciesCode)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.comName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.sciName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.locId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.locName)
@@ -90,15 +72,6 @@
             <td>
                 @Html.DisplayFor(modelItem => item.obsValid)
             </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.obsReviewed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.locationPrivate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.subId)
-            </td>*@
             <td>
                 @Html.ActionLink("Wish List", "WishList", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
@@ -107,7 +80,7 @@
         </tr>
 }
 
-        @foreach (var item in Model)
+        @*@foreach (var item in Model)
         {
             <tr>
                 <td>
@@ -140,22 +113,13 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.obsValid)
                 </td>
-                @*<td>
-                        @Html.DisplayFor(modelItem => item.obsReviewed)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.locationPrivate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.subId)
-                    </td>*@
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                     @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                     @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
                 </td>
             </tr>
-        }
+        }*@
 
     </tbody>
 </table>
