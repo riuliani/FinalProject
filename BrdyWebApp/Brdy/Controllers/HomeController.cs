@@ -26,6 +26,18 @@ namespace Brdy.Controllers
             return View();
         }
 
+        public IActionResult Seen()
+        {
+            return View();
+        }
+
+        public IActionResult WishList()
+        {
+            return View();
+        }
+
+
+
         public IActionResult Privacy()
         {
             return View();
@@ -35,7 +47,7 @@ namespace Brdy.Controllers
         public async Task<IActionResult> SearchBirdByLocation(SightingDetail model)
         {
             var result = await _service.GetLocationAsync(model.locName);
-            return View(result);
+            return View(result.OrderByDescending(x => x.howMany).Take(50));
         }
         [HttpGet]
         public async Task<IActionResult> SearchBirdBySpecies(SightingDetail model)
