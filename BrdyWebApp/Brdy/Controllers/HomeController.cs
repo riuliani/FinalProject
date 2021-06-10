@@ -56,6 +56,13 @@ namespace Brdy.Controllers
             return View(result);
         }
 
+        //public async Task<IActionResult> SearchRecentAsync()
+        //{
+        //    var result = await _service.GetRecentAsync();
+        //    return View(result);
+
+        //}
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

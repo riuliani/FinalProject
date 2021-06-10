@@ -8,5 +8,6 @@ namespace Brdy.Services
     {
         Task<IEnumerable <SightingDetail>> GetLocationAsync(string locName);
         Task<IEnumerable <SightingDetail>> GetSpeciesAsync(string comName);
+        //Task<IEnumerable<SightingDetail>> GetRecentAsync();
     }
 }

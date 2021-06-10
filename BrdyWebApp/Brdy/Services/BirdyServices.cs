@@ -24,7 +24,13 @@ namespace Brdy.Services
         {
             return await _client.GetFromJsonAsync<IEnumerable<SightingDetail>>($"data/obs/{comName}/recent");
         }
+        //Dont know exactly what i wanna do with this
+        //public async Task<IEnumerable<SightingDetail>> GetRecentAsync()
+        //{
+        //    return await _client.GetFromJsonAsync<IEnumerable<SightingDetail>>($"data/obs/MI/recent");
+        //}
 
+       
         //public async Task<IEnumerable<BirdsSeenViewModel>> GetAllSeenBirds()
         //{
         //    return await _client.GetAsync();
