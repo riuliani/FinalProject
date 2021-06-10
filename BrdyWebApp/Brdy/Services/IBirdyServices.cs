@@ -6,7 +6,8 @@ namespace Brdy.Services
 {
     public interface IBirdyServices
     {
-        Task<IEnumerable <SightingDetail>> GetLocationAsync(string locName);
-        Task<IEnumerable <SightingDetail>> GetSpeciesAsync(string comName);
+        Task<IEnumerable<Forecast>> GetForecast(float lat, float lon);
+        Task<IEnumerable<SightingDetail>> GetLocationAsync(string locName);
+        Task<IEnumerable<SightingDetail>> GetSpeciesAsync(string comName);
     }
 }
