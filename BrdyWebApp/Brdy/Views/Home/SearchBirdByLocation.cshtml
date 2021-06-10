@@ -16,7 +16,7 @@
 <table class="table">
     <thead>
         <tr>
-   
+
             <th>
                 @Html.DisplayNameFor(model => model.comName)
             </th>
@@ -45,18 +45,19 @@
                 @Html.DisplayNameFor(model => model.obsValid)
             </th>
             @*<th>
-                @Html.DisplayNameFor(model => model.obsReviewed)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.locationPrivate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.subId)
-            </th>*@
+                    @Html.DisplayNameFor(model => model.obsReviewed)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.locationPrivate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.subId)
+                </th>*@
             <th></th>
         </tr>
     </thead>
     <tbody>
+
 @foreach (var item in Model) {
         <tr>
             <td>
@@ -99,11 +100,85 @@
                 @Html.DisplayFor(modelItem => item.subId)
             </td>*@
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Wish List", "WishList", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Seen", "Seen", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
 }
+=======
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.speciesCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.comName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sciName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.locId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.locName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.obsDt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.howMany)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lng)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.obsValid)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.obsReviewed)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.locationPrivate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.subId)
+                    </td>*@
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+>>>>>>> 6289abebe8efe24e6bd8016d5d3dd9fe8c0ff34c
     </tbody>
 </table>
+
+@section Scripts {
+    @{ 
+        var first = Model.First();
+    }
+
+<script type="text/javascript">
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 6,
+                center: { lat: @first.lat, lng: @first.lng },
+            });
+            @foreach (var item in Model)
+            {
+                @:new google.maps.Marker({
+                @:    position: { lat: @item.lat, lng: @item.lng },
+                @:    map,
+                @:    title: "Hello World!",
+                @:});
+            }
+        }
+</script>    
+}

@@ -1,10 +1,10 @@
-﻿@model Brdy.Models.BirdsSeenViewModel
+﻿@model Brdy.Models.WishListBirds
 
 @{
-    ViewData["Title"] = "Seen";
+    ViewData["Title"] = "WishList";
 }
 
-<h4>Sightings</h4>
+<h4>Wish List</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -32,22 +32,7 @@
                 <span asp-validation-for="Longitude" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
-                <label asp-for="DateTime" class="control-label"></label>
-                <input asp-for="DateTime" class="form-control" />
-                <span asp-validation-for="DateTime" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Temperature" class="control-label"></label>
-                <input asp-for="Temperature" class="form-control" />
-                <span asp-validation-for="Temperature" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Forecast" class="control-label"></label>
-                <input asp-for="Forecast" class="form-control" />
-                <span asp-validation-for="Forecast" class="text-danger"></span>
-            </div>
+            
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
