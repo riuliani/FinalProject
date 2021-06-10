@@ -57,6 +57,56 @@
         </tr>
     </thead>
     <tbody>
+
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.speciesCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.comName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sciName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.locId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.locName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.obsDt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.howMany)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lng)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.obsValid)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.obsReviewed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.locationPrivate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.subId)
+            </td>*@
+            <td>
+                @Html.ActionLink("Wish List", "WishList", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Seen", "Seen", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+=======
         @foreach (var item in Model)
         {
             <tr>
@@ -106,6 +156,7 @@
                 </td>
             </tr>
         }
+>>>>>>> 6289abebe8efe24e6bd8016d5d3dd9fe8c0ff34c
     </tbody>
 </table>
 

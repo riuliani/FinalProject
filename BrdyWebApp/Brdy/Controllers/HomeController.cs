@@ -26,6 +26,18 @@ namespace Brdy.Controllers
             return View();
         }
 
+        public IActionResult Seen()
+        {
+            return View();
+        }
+
+        public IActionResult WishList()
+        {
+            return View();
+        }
+
+
+
         public IActionResult Privacy()
         {
             return View();
