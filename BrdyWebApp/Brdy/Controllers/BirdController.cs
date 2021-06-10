@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Brdy.Data;
 using Brdy.Models;
 using Brdy.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace Brdy.Controllers
@@ -13,18 +15,19 @@ namespace Brdy.Controllers
     {
         private readonly ILogger<BirdController> _logger;
         private readonly IBirdyServices _service;
+        private readonly ApplicationDbContext _context;
 
-        public BirdController(ILogger<BirdController> logger, IBirdyServices service)
+        public BirdController(ILogger<BirdController> logger, IBirdyServices service, ApplicationDbContext context)
         {
             _logger = logger;
             _service = service;
+            _context = context;
         }
-
         public IActionResult Index()
         {
             return View();
         }
-        public IActionResult Seen()
+        public IActionResult Seen(SightingDetail model)
         {
             return View();
         }
