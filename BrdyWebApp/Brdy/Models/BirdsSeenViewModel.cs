@@ -8,6 +8,8 @@ namespace Brdy.Models
 {
     public class BirdsSeenViewModel
     {
+        public int Id { get; set; }
+
         [Display(Name = "Common Name")]
         public string CommonName { get; set; }
         [Display(Name = "Scientific Name")]

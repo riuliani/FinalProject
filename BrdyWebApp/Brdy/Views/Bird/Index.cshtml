@@ -43,6 +43,14 @@
 
 </div>
 
+<form asp-controller="Bird" asp-action="SearchBirdByLocation" method="get">
+    <label asp-for="locName"></label>
+    @*Still dont know how i want to Display this*@
+    <input placeholder="Enter Location" asp-for="locName" />
+    <input type="submit" value="Search" class="btn btn-primary btn-sm" />
+</form>
+
+
 @*Maybe a example card to show how to search*@
 <div class="card" style="width: 18rem;">
     <div class="card-body">

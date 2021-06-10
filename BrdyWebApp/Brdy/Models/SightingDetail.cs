@@ -13,9 +13,9 @@ namespace Brdy.Models
         public string comName { get; set; }
         [Display(Name = "Scientific Name")]
         public string sciName { get; set; }
-        [Display(Name = "Location")]
-        public string locId { get; set; }
         [Display(Name = "")]
+        public string locId { get; set; }
+        [Display(Name = "Location")]
         public string locName { get; set; }
         [Display(Name = "Observed")]
         public string obsDt { get; set; }
