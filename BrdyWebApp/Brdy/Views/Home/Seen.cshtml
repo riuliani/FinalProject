@@ -1,0 +1,53 @@
+﻿@model Brdy.Models.SightingDetail
+
+@{
+    ViewData["Title"] = "Seen";
+}
+
+<h4>Sightings</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="comName" class="control-label"></label>
+                <input asp-for="comName" class="form-control" />
+                <span asp-validation-for="comName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="sciName" class="control-label"></label>
+                <input asp-for="sciName" class="form-control" />
+                <span asp-validation-for="sciName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="locId" class="control-label"></label>
+                <input asp-for="locId" class="form-control" />
+                <span asp-validation-for="locId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="locName" class="control-label"></label>
+                <input asp-for="locName" class="form-control" />
+                <span asp-validation-for="locName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="obsDt" class="control-label"></label>
+                <input asp-for="obsDt" class="form-control" />
+                <span asp-validation-for="obsDt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Home</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
