@@ -24,9 +24,6 @@ namespace Brdy.Services
         {
             return await _client.GetFromJsonAsync<IEnumerable<SightingDetail>>($"data/obs/{comName}/recent");
         }
-        //public async Task<IEnumerable<Forecast>> GetForecast(float lat, float lon)
-        //{
-        //    return await _client.GetFromJsonAsync<IEnumerable<Forecast>>($"lat={lat}&lon={lon}");
-        //}
+        
     }
 }

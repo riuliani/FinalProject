@@ -39,9 +39,15 @@ namespace Brdy
             {
                 client.BaseAddress = new Uri("https://api.ebird.org/v2/");
                 client.DefaultRequestHeaders.Add("x-ebirdapitoken", "e15qfde819pq");
-                //client.BaseAddress = new Uri("https://community-open-weather-map.p.rapidapi.com/forecast?");
-                //client.DefaultRequestHeaders.Add("x-rapidapi-key", "0f4061d736mshcc9bac3a479e052p1aff4ejsn796b613fcb89");
+                                
             });
+            services.AddHttpClient< IWeatherServices, WeatherServices> (client =>
+            {
+                client.BaseAddress = new Uri("https://community-open-weather-map.p.rapidapi.com/forecast");
+                client.DefaultRequestHeaders.Add("x-rapidapi-key", "0f4061d736mshcc9bac3a479e052p1aff4ejsn796b613fcb89");
+
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -22,9 +22,9 @@ namespace Brdy.Models
         [Display(Name = "Time")]
         public int howMany { get; set; }
         [Display(Name = "Spotted")]
-        public float lat { get; set; }
+        public double lat { get; set; }
         [Display(Name = "Lat")]
-        public float lng { get; set; }
+        public double lng { get; set; }
         [Display(Name = "Long")]
         public bool obsValid { get; set; }
         public bool obsReviewed { get; set; }

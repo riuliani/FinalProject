@@ -49,6 +49,13 @@
     <input placeholder="Enter Location" asp-for="locName" />
     <input type="submit" value="Search" class="btn btn-primary btn-sm" />
 </form>
+<form asp-controller="Bird" asp-action="Weather" method="get">
+    <label asp-for="locName"></label>
+    @*Still dont know how i want to Display this*@
+    <input placeholder="Enter Latitude" asp-for="lat" />
+    <input placeholder="Enter Longitude" asp-for="lng" />
+    <input type="submit" value="Search" class="btn btn-primary btn-sm" />
+</form>
 
 
 @*Maybe a example card to show how to search*@

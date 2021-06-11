@@ -15,13 +15,15 @@ namespace Brdy.Controllers
     {
         private readonly ILogger<BirdController> _logger;
         private readonly IBirdyServices _service;
+        private readonly IWeatherServices _services;
         private readonly ApplicationDbContext _context;
 
-        public BirdController(ILogger<BirdController> logger, IBirdyServices service, ApplicationDbContext context)
+        public BirdController(ILogger<BirdController> logger, IBirdyServices service, IWeatherServices services, ApplicationDbContext context)
         {
             _logger = logger;
             _service = service;
             _context = context;
+            _services = services;
         }
         public IActionResult Index()
         {
@@ -48,17 +50,11 @@ namespace Brdy.Controllers
             var result = await _service.GetSpeciesAsync(model.comName);
             return View(result);
         }
-        //[HttpGet]
-        //public async Task<IActionResult> Weather(SightingDetail model)
-        //{
-        //    var result = await _service.GetForecast(model.lat, model.lng);
-        //    return View(result);
-        //}
-
-        //public async Task<IActionResult> SearchRecentAsync()
-        //{
-        //    var result = await _service.GetRecentAsync();
-        //    return View(result);
-        //}
+        [HttpGet]
+        public async Task<IActionResult> Weather(SightingDetail model)
+        {
+            var result = await _services.GetForecast(model.lat, model.lng);
+            return View(result);
+        }        
     }
 }
