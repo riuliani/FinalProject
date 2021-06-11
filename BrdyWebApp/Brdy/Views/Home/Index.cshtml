@@ -5,6 +5,10 @@
 
 <style>
 
+    h1 {
+        position: relative;
+        top: 50px;
+    }
     .container {
         display: flex;
         justify-content: center;
@@ -39,42 +43,32 @@
 
 </div>
 
-<form asp-controller="Home" asp-action="SearchBirdByLocation" method="get">
-    <label asp-for="locName"></label>
-    <input asp-for="locName" />
-    <input type="submit" value="Search" class="btn btn-primary" />
-</form>
-
-
-
+@*Maybe a example card to show how to search*@
 <div class="card" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
+        
     </div>
 </div>
 
-
+@*Maybe recent sighting*@
 <div class="card" style="width: 18rem;">
     <div class="card-body">
-        <h5 class="card-title">Card title</h5>
+        <h5 class="card-title">Recent Sightings</h5>
         <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
+        
     </div>
 </div>
 
-
+@*Quick Add feature?*@
 <div class="card" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
+        
     </div>
 </div>

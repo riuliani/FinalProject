@@ -16,7 +16,7 @@ namespace Brdy.Services
             _client = client;
         }
 
-        public async Task<IEnumerable <SightingDetail>> GetLocationAsync(string locName)
+        public async Task<IEnumerable<SightingDetail>> GetLocationAsync(string locName)
         {
             return await _client.GetFromJsonAsync<IEnumerable<SightingDetail>>($"data/obs/{locName}/recent");
         }
@@ -24,5 +24,6 @@ namespace Brdy.Services
         {
             return await _client.GetFromJsonAsync<IEnumerable<SightingDetail>>($"data/obs/{comName}/recent");
         }
+        
     }
 }
