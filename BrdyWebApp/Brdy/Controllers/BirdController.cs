@@ -38,6 +38,14 @@ namespace Brdy.Controllers
             return View();
         }
 
+    
+        [HttpGet]
+        public async Task<IActionResult> GetRecent()
+        {
+            var result = await _service.GetRecentAsync();
+            return View(result);
+        }
+
         [HttpGet]
         public async Task<IActionResult> SearchBirdByLocation(SightingDetail model)
         {
