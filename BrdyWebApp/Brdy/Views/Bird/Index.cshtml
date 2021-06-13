@@ -37,16 +37,32 @@
 </style>
 
 
-<div class="container">
+<div class="container">s
 
-    <h1> Welcome To Bird Watchers</h1>
+    <h1> Welcome To Brdy</h1>
 
 </div>
 
 <form asp-controller="Bird" asp-action="SearchBirdByLocation" method="get">
-    <label asp-for="locName"></label>
+    @*<label asp-for="locName"></label>*@
+
+    @*<select asp-for="RegionCodes" asp-items="Model.Region"></select>*@
+
+
+    <form asp-controller="Bird" asp-action="Index" method="post">
+        <select asp-for="Region" asp-items="Model.Region"></select>
+        <br /><button type="submit">Register</button>
+    </form>
+
+
     @*Still dont know how i want to Display this*@
-    <input placeholder="Enter Location" asp-for="locName" />
+    @*<select name="Region" id="Regions">
+            <option value="@Region.MI">Michigan</option>
+            <option value="@Region.AL">Alabama</option>
+            <option value="@Region.IN">Indiana</option>
+            <option value="@Region.AR">Arizona</option>
+            <option value="@Region.CT">Conn</option>
+        </select>*@
     <input type="submit" value="Search" class="btn btn-primary btn-sm" />
 </form>
 <form asp-controller="Bird" asp-action="Weather" method="get">
@@ -59,31 +75,33 @@
 
 
 @*Maybe a example card to show how to search*@
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        
-    </div>
-</div>
 
-@*Maybe recent sighting*@
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">Recent Sightings</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        
-    </div>
-</div>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 
-@*Quick Add feature?*@
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        
+        </div>
     </div>
-</div>
+  
+
+    @*Maybe recent sighting*@
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Recent Sightings</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+        </div>
+    </div>
+
+    @*Quick Add feature?*@
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+        </div>
+    </div>
