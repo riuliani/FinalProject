@@ -59,9 +59,9 @@ namespace Brdy.Controllers
             return View(result);
         }
         [HttpGet]
-        public async Task<IActionResult> Weather(SightingDetail model)
+        public async Task<IActionResult> Weather(Forecast model)
         {
-            var result = await _services.GetForecast(model.lat, model.lng);
+            var result = await _services.GetForecast(model.lat, model.lon);
             return View(result);
         }        
     }
