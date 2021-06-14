@@ -15,9 +15,9 @@ namespace Brdy.Services
         {
             _client = client;
         }
-        public async Task<Forecast> GetForecast(double lat, double lon)
+        public async Task<CurrentWeather> GetForecast(double lat, double lon)
         {
-            return await _client.GetFromJsonAsync<Forecast>($"?lat={lat}&lon={lon}");
+            return await _client.GetFromJsonAsync<CurrentWeather>($"weather?lat={lat}&lon={lon}&units=imperial");
         }
     }
 }

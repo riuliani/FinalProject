@@ -5,6 +5,6 @@ namespace Brdy.Services
 {
     public interface IWeatherServices
     {
-        Task<Forecast> GetForecast(double lat, double lon);
+        Task<CurrentWeather> GetForecast(double lat, double lon);
     }
 }

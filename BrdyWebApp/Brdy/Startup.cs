@@ -43,8 +43,8 @@ namespace Brdy
             });
             services.AddHttpClient< IWeatherServices, WeatherServices> (client =>
             {
-                client.BaseAddress = new Uri("https://community-open-weather-map.p.rapidapi.com/forecast");
-                client.DefaultRequestHeaders.Add("x-rapidapi-key", "0f4061d736mshcc9bac3a479e052p1aff4ejsn796b613fcb89");
+                client.BaseAddress = new Uri("https://community-open-weather-map.p.rapidapi.com/");
+                client.DefaultRequestHeaders.Add("x-rapidapi-key", "135730d86dmsh94bdc4d478556cap112964jsna68ccd2c2bbb");
 
             });
 

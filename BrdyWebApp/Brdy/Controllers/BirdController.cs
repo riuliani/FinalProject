@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Brdy.Data;
+using Brdy.Data.Models;
 using Brdy.Models;
 using Brdy.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -29,9 +30,36 @@ namespace Brdy.Controllers
         {
             return View();
         }
-        public IActionResult Seen(SightingDetail model)
+        public IActionResult Seen()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SeenBirdList(BirdsSeenViewModel model)
+        {
+            var bird = new Bird();
+            var weather = new Brdy.Data.Models.Weather();
+            
+            if (ModelState.IsValid)
+            {
+                bird.CommonName = model.CommonName;
+                bird.ScientificName = model.ScientificName;
+                bird.Lattatude = model.Latitude;
+                bird.Longitude = model.Longitude;
+            }
+
+            var result = await _services.GetForecast(model.Latitude, model.Longitude);
+
+            weather.Temperature = result.main.temp;
+
+            _context.Add(bird);
+            _context.Add(weather);
+
+            await _context.SaveChangesAsync();
+
+            var allBirds = _context.Birds.ToListAsync();
+            return View(allBirds);
         }
         public IActionResult WishList()
         {
@@ -44,6 +72,7 @@ namespace Brdy.Controllers
             var result = await _service.GetLocationAsync(model.locName);
             return View(result.OrderByDescending(x => x.howMany).Take(50));
         }
+
         [HttpGet]
         public async Task<IActionResult> SearchBirdBySpecies(SightingDetail model)
         {

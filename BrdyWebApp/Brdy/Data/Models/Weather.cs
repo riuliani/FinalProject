@@ -10,13 +10,12 @@ namespace Brdy.Data.Models
     {
         [Key]
         public int WeatherId { get; set; }
-        [Required]
-        public DateTime DateTime { get; set; }
         public double Temperature { get; set; }
-        [MaxLength(20)]
         public string Forecast { get; set; }
 
-        public int LocationId{ get; set; }
+
+        public int BirdId { get; set; }
+
 
     }
 }
