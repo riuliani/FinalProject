@@ -37,8 +37,14 @@ namespace Brdy.Controllers
         {
             return View();
         }
+        public IActionResult Detail()
+        {
+            return View();
+        }
 
-    
+
+
+
         [HttpGet]
         public async Task<IActionResult> GetRecent()
         {
@@ -51,6 +57,7 @@ namespace Brdy.Controllers
         {
             var result = await _service.GetLocationAsync(model.locName);
             return View(result.OrderByDescending(x => x.howMany).Take(50));
+            
         }
         [HttpGet]
         public async Task<IActionResult> SearchBirdBySpecies(SightingDetail model)
