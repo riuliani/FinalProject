@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Brdy.Models
 {
@@ -19,16 +20,19 @@ namespace Brdy.Models
         public string locName { get; set; }
         [Display(Name = "Observed")]
         public string obsDt { get; set; }
-        [Display(Name = "Time")]
-        public int howMany { get; set; }
         [Display(Name = "Spotted")]
-        public double lat { get; set; }
+        public int howMany { get; set; }
         [Display(Name = "Lat")]
-        public double lng { get; set; }
+        public double lat { get; set; }
         [Display(Name = "Long")]
+        public double lng { get; set; }
+       
         public bool obsValid { get; set; }
         public bool obsReviewed { get; set; }
         public bool locationPrivate { get; set; }
         public string subId { get; set; }
+        public string RegionCodes { get; set; }
+
     }
 }
+

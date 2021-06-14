@@ -41,6 +41,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.obsValid)
             </th>
+            
             <th></th>
         </tr>
     </thead>
@@ -72,11 +73,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.obsValid)
             </td>
-            <td>
-                @Html.ActionLink("Wish List", "WishList", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Seen", "Seen", new { /* id=item.PrimaryKey */ })
-            </td>
+           
         </tr>
 }
 
