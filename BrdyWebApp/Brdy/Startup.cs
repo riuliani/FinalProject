@@ -2,17 +2,11 @@ using Brdy.Data;
 using Brdy.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Brdy
 {
@@ -30,7 +24,7 @@ namespace Brdy
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("Brdy")));
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
@@ -40,7 +34,8 @@ namespace Brdy
                 client.BaseAddress = new Uri("https://api.ebird.org/v2/");
                
                 client.DefaultRequestHeaders.Add("x-ebirdapitoken", "e15qfde819pq");
-                                
+
+
             });
             services.AddHttpClient< IWeatherServices, WeatherServices> (client =>
             {

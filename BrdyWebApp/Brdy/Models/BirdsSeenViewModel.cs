@@ -18,11 +18,5 @@ namespace Brdy.Models
         public double Latitude { get; set; }
         [Display(Name = "Longitude")]
         public double Longitude { get; set; }
-        [Display(Name = "Date")]
-        public DateTime DateTime { get; set; }
-        [Display(Name = "Temperature")]
-        public double Temperature { get; set; }
-        [Display(Name = "Forecast")]
-        public string Forecast { get; set; }
     }
 }
