@@ -14,8 +14,7 @@ namespace Brdy.Data
         {
         }
 
-        public DbSet<BirdList> Birds { get; set; }
-        public DbSet<Location> Locations { get; set; }
+        public DbSet<Bird> Birds { get; set; }
         public DbSet<Weather> Weather { get; set; }
 
     }
