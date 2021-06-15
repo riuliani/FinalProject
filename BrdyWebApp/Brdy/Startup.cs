@@ -2,11 +2,17 @@ using Brdy.Data;
 using Brdy.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Brdy
 {
@@ -24,7 +30,7 @@ namespace Brdy
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("Brdy")));
+                    Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
@@ -32,10 +38,8 @@ namespace Brdy
             services.AddHttpClient<IBirdyServices, BirdyServices>(client =>
             {
                 client.BaseAddress = new Uri("https://api.ebird.org/v2/");
-               
                 client.DefaultRequestHeaders.Add("x-ebirdapitoken", "e15qfde819pq");
-
-
+                                
             });
             services.AddHttpClient< IWeatherServices, WeatherServices> (client =>
             {
@@ -43,7 +47,7 @@ namespace Brdy
                 client.DefaultRequestHeaders.Add("x-rapidapi-key", "0f4061d736mshcc9bac3a479e052p1aff4ejsn796b613fcb89");
 
             });
-            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

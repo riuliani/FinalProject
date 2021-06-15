@@ -1,7 +1,11 @@
-using Brdy.Data;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Brdy
 {
@@ -9,16 +13,16 @@ namespace Brdy
     {
         public static void Main(string[] args)
         {
-            var host = CreateHostBuilder(args).Build();
+            /*var host =*/ CreateHostBuilder(args).Build().Run();
 
-            using (var scope = host.Services.CreateScope())
-            {
-                var services = scope.ServiceProvider;
-                var context = services.GetRequiredService<ApplicationDbContext>();
-                context.Database.EnsureCreated();
-            }
+            //using (var scope = host.Services.CreateScope())
+            //{
+            //    var services = scope.ServiceProvider;
+            //    var context = services.GetRequiredService<TourDbContext>();
+            //    DbInitializer.Initialize(context);
+            //}
 
-            host.Run();
+            //host.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
