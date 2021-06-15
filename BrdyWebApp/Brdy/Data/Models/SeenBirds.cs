@@ -13,7 +13,6 @@ namespace Brdy.Data.Models
         public int BirdId { get; set; }
         [Required]
         public string CommonName { get; set; }
-        [Required]
         public string ScientificName { get; set; }
         public double Lattatude { get; set; }
         public double Longitude { get; set; }

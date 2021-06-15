@@ -28,9 +28,13 @@
 
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-
-                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Spottings">Spottings</a>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Bird" asp-action="Spottings">Spottings</a>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Bird" asp-action="Seen">Seen</a>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Bird" asp-action="WishList">Wishlist</a>
+                }
                 <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
                 <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
 

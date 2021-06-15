@@ -30,7 +30,7 @@ namespace Brdy
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("DefaultConnection")));//Change to Brdy before running
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
@@ -38,7 +38,7 @@ namespace Brdy
             services.AddHttpClient<IBirdyServices, BirdyServices>(client =>
             {
                 client.BaseAddress = new Uri("https://api.ebird.org/v2/");
-                client.DefaultRequestHeaders.Add("x-ebirdapitoken", "e15qfde819pq");
+                client.DefaultRequestHeaders.Add("x-ebirdapitoken", Configuration["ApiKeys:ebird"]);
                                 
             });
             services.AddHttpClient< IWeatherServices, WeatherServices> (client =>
