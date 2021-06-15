@@ -3,5 +3,6 @@ namespace Brdy.Models
 {
     public enum Region
     {
+        Michigan
     }
 }

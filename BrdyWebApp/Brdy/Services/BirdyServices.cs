@@ -24,11 +24,6 @@ namespace Brdy.Services
         {
             return await _client.GetFromJsonAsync<IEnumerable<SightingDetail>>($"data/obs/{comName}/recent");
         }
-
-
-        public async Task<IEnumerable<SightingDetail>> GetRecentAsync()
-        {
-            return await _client.GetFromJsonAsync<IEnumerable<SightingDetail>>($"data/obs/MI/recent/");
-        }
+        
     }
 }
