@@ -3,17 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Brdy.Data;
-using Brdy.Data.Models;
 using Brdy.Models;
 using Brdy.Services;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace Brdy.Controllers
 {
-    [Authorize]
     public class BirdController : Controller
     {
         private readonly ILogger<BirdController> _logger;
@@ -32,45 +29,13 @@ namespace Brdy.Controllers
         {
             return View();
         }
-        public IActionResult Seen()
+        public IActionResult Seen(SightingDetail model)
         {
             return View();
-        }
-        [HttpPost]
-        public async Task<IActionResult> AddToSeenList(BirdsSeenViewModel model)
-        {
-            var bird = new Bird();
-            if(ModelState.IsValid)
-            {
-                bird.CommonName = model.CommonName;
-                bird.ScientificName = model.ScientificName;
-                bird.Lattitude = model.Latitude;
-                bird.Longitude = model.Longitude;
-            }
-
-            _context.Add(bird);
-            await _context.SaveChangesAsync();
-
-            var result = _context.Birds.ToListAsync();
-            return View(result);
         }
         public IActionResult WishList()
         {
             return View();
-        }
-        public IActionResult Detail()
-        {
-            return View();
-        }
-
-
-
-
-        [HttpGet]
-        public async Task<IActionResult> GetRecent()
-        {
-            var result = await _service.GetRecentAsync();
-            return View(result);
         }
 
         [HttpGet]
@@ -78,7 +43,6 @@ namespace Brdy.Controllers
         {
             var result = await _service.GetLocationAsync(model.locName);
             return View(result.OrderByDescending(x => x.howMany).Take(50));
-            
         }
         [HttpGet]
         public async Task<IActionResult> SearchBirdBySpecies(SightingDetail model)
@@ -87,9 +51,9 @@ namespace Brdy.Controllers
             return View(result);
         }
         [HttpGet]
-        public async Task<IActionResult> Weather(Forecast model)
+        public async Task<IActionResult> Weather(SightingDetail model)
         {
-            var result = await _services.GetForecast(model.lat, model.lon);
+            var result = await _services.GetForecast(model.lat, model.lng);
             return View(result);
         }        
     }

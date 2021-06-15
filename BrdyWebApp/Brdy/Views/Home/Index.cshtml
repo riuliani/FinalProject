@@ -1,14 +1,15 @@
 ﻿@model Brdy.Models.SightingDetail
-@{ ViewData["Title"] = "Home Page"; }
+@{
+    ViewData["Title"] = "Home Page";
+}
 
 <style>
 
-    @*h1 {
+    h1 {
         position: relative;
         top: 50px;
-    }*@
-
-    @*.container {
+    }
+    .container {
         display: flex;
         justify-content: center;
     }
@@ -24,24 +25,50 @@
         position: relative;
         top: 450px;
         display: inline-block;
+       
     }
 
-    input {
+    input{
         border-radius: 10px;
-    }*@
-
-    .jumbotron {
-        position: relative;
-        top: 250px;
-        background-color: #E9F1F7;
     }
+
+  
+   
 </style>
 
 
-<div class="jumbotron">
-    <h1 class="display-4">Welcome to BRDY!</h1>
-    <p class="lead">Brdy Is a one stop shop for all your Bird watching needs. Join some of the elite Bird watching clubs!!!!</p>
-    <hr class="my-4">
-    
-    <a class="btn btn-primary btn-lg" asp-area="Identity" asp-page="/Account/Register" role="button">Join Now</a>
+<div class="container">
+
+    <h1> Welcome To Bird Watchers</h1>
+
+</div>
+
+@*Maybe a example card to show how to search*@
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        
+    </div>
+</div>
+
+@*Maybe recent sighting*@
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Recent Sightings</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        
+    </div>
+</div>
+
+@*Quick Add feature?*@
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        
+    </div>
 </div>
