@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 using Brdy.Data;
 using Brdy.Models;
 using Brdy.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace Brdy.Controllers
 {
+    [Authorize]
     public class BirdController : Controller
     {
         private readonly ILogger<BirdController> _logger;
