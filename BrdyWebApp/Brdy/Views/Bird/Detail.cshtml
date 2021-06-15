@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Brdy.Models.SightingDetail>
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+
+@*Probably name something else*@
+<h1 style="display: flex; justify-content: center;">Location Details</h1>
+<div id="map"></div>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.comName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sciName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.locName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.obsDt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.howMany)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lng)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.obsValid)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.comName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sciName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.locName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.obsDt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.howMany)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lng)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.obsValid)
+                </td>
+                <td>
+                    @Html.ActionLink("Wish List", "WishList", new { /* id=item.PrimaryKey */ }) |
+
+                    @Html.ActionLink("Seen", "Seen", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
