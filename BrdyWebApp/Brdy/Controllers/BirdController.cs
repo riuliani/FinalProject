@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Brdy.Data;
 using Brdy.Models;
 using Brdy.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace Brdy.Controllers
@@ -15,15 +12,13 @@ namespace Brdy.Controllers
     {
         private readonly ILogger<BirdController> _logger;
         private readonly IBirdyServices _service;
-        private readonly IWeatherServices _services;
         private readonly ApplicationDbContext _context;
 
-        public BirdController(ILogger<BirdController> logger, IBirdyServices service, IWeatherServices services, ApplicationDbContext context)
+        public BirdController(ILogger<BirdController> logger, IBirdyServices service, ApplicationDbContext context)
         {
             _logger = logger;
             _service = service;
             _context = context;
-            _services = services;
         }
         public IActionResult Index()
         {
@@ -48,12 +43,6 @@ namespace Brdy.Controllers
         public async Task<IActionResult> SearchBirdBySpecies(SightingDetail model)
         {
             var result = await _service.GetSpeciesAsync(model.comName);
-            return View(result);
-        }
-        [HttpGet]
-        public async Task<IActionResult> Weather(SightingDetail model)
-        {
-            var result = await _services.GetForecast(model.lat, model.lng);
             return View(result);
         }        
     }
