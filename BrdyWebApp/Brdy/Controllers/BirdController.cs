@@ -24,10 +24,7 @@ namespace Brdy.Controllers
         {
             return View();
         }
-        public IActionResult Seen(SightingDetail model)
-        {
-            return View();
-        }
+        
         public IActionResult WishList()
         {
             return View();

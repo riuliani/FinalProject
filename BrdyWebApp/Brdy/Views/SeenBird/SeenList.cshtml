@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Brdy.Data.Models.SeenBirds>
+
+@{
+    ViewData["Title"] = "Seen List";
+}
+
+<h1>Seen List</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CommonName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScientificName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lattatude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Longitude)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommonName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScientificName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lattatude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Longitude)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BirdId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BirdId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BirdId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
