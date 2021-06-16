@@ -9,6 +9,7 @@
         position: relative;
         top: 50px;
     }
+
     .container {
         display: flex;
         justify-content: center;
@@ -25,15 +26,11 @@
         position: relative;
         top: 450px;
         display: inline-block;
-       
     }
 
-    input{
+    input {
         border-radius: 10px;
     }
-
-  
-   
 </style>
 
 
@@ -52,8 +49,11 @@
 <form asp-controller="Bird" asp-action="Weather" method="get">
     <label asp-for="locName"></label>
     @*Still dont know how i want to Display this*@
-    <input placeholder="Enter Latitude" asp-for="lat" />
-    <input placeholder="Enter Longitude" asp-for="lng" />
+    <input id="lat" placeholder="Enter Latitude" asp-for="lat" />
+    <input id="lon" Enter Longitude" asp-for="lng" />
+    <button onclick="getLocation()">Get Lat and Lon</button>
+    <p id="coords"></p>
+
     <input type="submit" value="Search" class="btn btn-primary btn-sm" />
 </form>
 
@@ -64,7 +64,7 @@
         <h5 class="card-title">Card title</h5>
         <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        
+
     </div>
 </div>
 
@@ -74,7 +74,7 @@
         <h5 class="card-title">Recent Sightings</h5>
         <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        
+
     </div>
 </div>
 
@@ -84,6 +84,30 @@
         <h5 class="card-title">Card title</h5>
         <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        
+
     </div>
 </div>
+
+<script>
+    var x = document.getElementById("lat");
+    var y = document.getElementById("lon");
+
+
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+
+    }
+
+    function showPosition(position) {
+        x.value = position.coords.latitude;
+
+        y.value = position.coords.longitude;
+    }
+
+
+}</script>
