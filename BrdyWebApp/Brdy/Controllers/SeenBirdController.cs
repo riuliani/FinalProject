@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Brdy.Data;
 using Brdy.Data.Models;
@@ -27,29 +25,36 @@ namespace Brdy.Controllers
             _context = context;
             _userManager = userManager;
         }
-        public IActionResult Seen()
+        public IActionResult Seen(BirdsSeenViewModel model)
         {            
-            return View();
+            return View(model);
         }
-        public IActionResult AddToSeenList(BirdsSeenViewModel model)
+        [HttpPost]
+        public async Task<IActionResult> AddToSeenList(BirdsSeenViewModel model)
         {
             var bird = new SeenBirds();
+            var user = await _userManager.GetUserAsync(User);
             if (ModelState.IsValid)
             {
                 bird.CommonName = model.CommonName;
+                bird.ScientificName = model.ScientificName;
                 bird.Lattatude = model.Latitude;
                 bird.Longitude = model.Longitude;
+                bird.User = user;
+                
             }
 
-            _context.SeenBirds.Add(bird);
+            _context.Add(bird);
+            await _context.SaveChangesAsync();
 
             return RedirectToAction("SeenList");
         }
 
         public async Task<IActionResult> SeenList()
-        {           
-            var userId = _userManager.GetUserId(User);           
+        {
+            var userId = _userManager.GetUserId(User);
             return View(await _context.SeenBirds.Where(X => X.User.Id == userId).ToListAsync());
+            //return View(await _context.SeenBirds.ToListAsync());
         }       
     }
 }

@@ -73,54 +73,12 @@
                 @Html.DisplayFor(modelItem => item.obsValid)
             </td>
             <td>
-                @Html.ActionLink("Wish List", "WishList", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Wish List", "Wish", "WishList", new { CommonName = item.comName }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Seen", "Seen", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Seen Bird", "Seen", "SeenBird", new { CommonName = item.comName, ScientificName = item.sciName, Latitude = item.lat, Longitude = item.lng })
             </td>
         </tr>
 }
-
-        @*@foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.speciesCode)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.comName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.sciName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.locId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.locName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.obsDt)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.howMany)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.lat)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.lng)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.obsValid)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                </td>
-            </tr>
-        }*@
-
     </tbody>
 </table>
 
