@@ -1,18 +1,16 @@
-﻿body {
-
+﻿﻿body {
 }
 
 
 
 .Heading {
-    
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-img{
-    height:30px;
+img {
+    height: 30px;
     width: 40px;
 }
 
@@ -30,3 +28,6 @@ body {
     padding: 0;
 }
 
+.jumbotron {
+    background-image: url('pea.jpg');
+}
