@@ -46,12 +46,12 @@
     <input placeholder="Enter Location" asp-for="locName" />
     <input type="submit" value="Search" class="btn btn-primary btn-sm" />
 </form>
-<form asp-controller="Bird" asp-action="Weather" method="get">
+<form asp-controller="Bird" asp-action="Recent" method="get">
     <label asp-for="locName"></label>
     @*Still dont know how i want to Display this*@
     <input id="lat" placeholder="Enter Latitude" asp-for="lat" />
     <input id="lon" Enter Longitude" asp-for="lng" />
-    <button onclick="getLocation()">Get Lat and Lon</button>
+    <button id="but">Get Lat and Lon</button>
     <p id="coords"></p>
 
     <input type="submit" value="Search" class="btn btn-primary btn-sm" />
@@ -88,10 +88,15 @@
     </div>
 </div>
 
-<script>
-    var x = document.getElementById("lat");
-    var y = document.getElementById("lon");
+<script>IDBCursor
 
+    let x = document.getElementById("lat");
+    let y = document.getElementById("lon");
+    let button = document.getElementById("but").addEventListener("click", (e) => {
+        e.preventDefault();
+        console.log("Darrius");
+        getLocation();
+    })
 
 
     function getLocation() {
