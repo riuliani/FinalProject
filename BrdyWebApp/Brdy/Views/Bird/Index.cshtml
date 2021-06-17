@@ -46,16 +46,24 @@
     <input placeholder="Enter Location" asp-for="locName" />
     <input type="submit" value="Search" class="btn btn-primary btn-sm" />
 </form>
-<form asp-controller="Bird" asp-action="Recent" method="get">
+<form asp-controller="Bird" asp-action="GetRecentAsync" method="get">
     <label asp-for="locName"></label>
     @*Still dont know how i want to Display this*@
     <input id="lat" placeholder="Enter Latitude" asp-for="lat" />
     <input id="lon" Enter Longitude" asp-for="lng" />
+<<<<<<< HEAD
+    @*<p id="coords"></p>*@
+    <div>
+        <input type="submit" value="Search" class="btn btn-primary btn-sm" />
+    </div>    
+=======
     <button id="but">Get Lat and Lon</button>
     <p id="coords"></p>
 
     <input type="submit" value="Search" class="btn btn-primary btn-sm" />
+>>>>>>> 217ea0b24826c2a2a360785413b1025d11192601
 </form>
+<button onclick="getLocation()">Get Lat and Lon</button>
 
 
 @*Maybe a example card to show how to search*@
@@ -97,14 +105,34 @@
         getLocation();
     })
 
+<<<<<<< HEAD
+@section Scripts
+{
+<script type="text/javascript">
+    $(document).ready(() => {
+        var x = document.getElementById("lat");
+        var y = document.getElementById("lon");
+
+=======
 
     function getLocation() {
+>>>>>>> 217ea0b24826c2a2a360785413b1025d11192601
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
         } else {
             x.innerHTML = "Geolocation is not supported by this browser.";
         }
 
+<<<<<<< HEAD
+        function showPosition(position) {
+            x.value = position.coords.latitude;
+            y.value = position.coords.longitude;
+        }
+    });
+</script>
+
+}
+=======
     }
 
     function showPosition(position) {
@@ -115,3 +143,4 @@
 
 
 }</script>
+>>>>>>> 217ea0b24826c2a2a360785413b1025d11192601
