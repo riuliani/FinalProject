@@ -43,6 +43,12 @@ namespace Brdy.Controllers
         {
             var result = await _service.GetSpeciesAsync(model.comName);
             return View(result);
-        }        
+        }
+
+        public async Task<IActionResult> Recent(SightingDetail model)
+        {
+            var result = await _service.GetRecentAsync(model.lat, model.obsValid);
+            return View(result);
+        }
     }
 }
