@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Brdy.Data;
 using Brdy.Data.Models;
@@ -11,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace Brdy.Controllers
-{    
+{
     public class WishListController : Controller
     {
         private readonly ILogger<WishListController> _logger;
@@ -31,7 +29,8 @@ namespace Brdy.Controllers
         {
             return View();
         }
-        public IActionResult AddToWishList(WishList model)
+        [HttpPost]
+        public async  Task<IActionResult> AddToWishList(WishList model)
         {
             var bird = new WishList();
             if (ModelState.IsValid)
@@ -40,14 +39,17 @@ namespace Brdy.Controllers
             }
 
             _context.WishList.Add(bird);
+            await _context.SaveChangesAsync();
 
             return RedirectToAction("DisplayWishList");
         }
 
         public async Task<IActionResult> DisplayWishList()
         {
-            var userId = _userManager.GetUserId(User);
-            return View(await _context.WishList.Where(X => X.User.Id == userId).ToListAsync());
+            //var userId = _userManager.GetUserId(User);
+            //return View(await _context.WishList.Where(X => X.User.Id == userId).ToListAsync());
+
+            return View(await _context.WishList.ToListAsync());
         }
     }
 }

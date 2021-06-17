@@ -26,7 +26,8 @@ namespace Brdy.Models
         [Display(Name = "Lat")]
         public double lng { get; set; }
         [Display(Name = "Long")]
-        public bool obsValid { get; set; }
+        public double obsValid { get; set; }
+
         public bool obsReviewed { get; set; }
         public bool locationPrivate { get; set; }
         public string subId { get; set; }

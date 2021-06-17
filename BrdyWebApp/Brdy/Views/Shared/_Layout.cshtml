@@ -24,7 +24,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <img src="/css/bird.png" />
+        <img href  src="/css/bird.png" />
 
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
@@ -34,9 +34,9 @@
                     <a class="nav-link text-dark" asp-area="" asp-controller="SeenBird" asp-action="Seen">Seen</a>
                     <a class="nav-link text-dark" asp-area="" asp-controller="WishList" asp-action="Wish">Wishlist</a>
                 }
-                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
-
+                @*<a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>*@
+                <partial name="_LoginPartial" />
             </div>
         </div>
     </nav>
