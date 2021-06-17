@@ -46,48 +46,51 @@
     </thead>
     <tbody>
 
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.comName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.sciName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.locName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.obsDt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.howMany)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.lat)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.lng)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.obsValid)
-            </td>
-            <td>
-                @Html.ActionLink("Wish List", "Wish", "WishList", new { CommonName = item.comName }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Seen Bird", "Seen", "SeenBird", new { CommonName = item.comName, ScientificName = item.sciName, Latitude = item.lat, Longitude = item.lng })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.comName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sciName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.locName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.obsDt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.howMany)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lng)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.obsValid)
+                </td>
+                <td>
+                    @Html.ActionLink("Wish List", "Wish", "WishList", new { CommonName = item.comName }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Seen Bird", "Seen", "SeenBird", new { CommonName = item.comName, ScientificName = item.sciName, Latitude = item.lat, Longitude = item.lng })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 
 @section Scripts {
-    @{ 
+    @{
         var first = Model.First();
     }
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqIdprb3rLozalirJ1Ubfc4x15U0unu8U&callback=initMap&libraries=&v=weekly"
+            async></script>
 
-<script type="text/javascript">
+    <script type="text/javascript">
         function initMap() {
             const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 6,
@@ -102,5 +105,5 @@
                 @:});
             }
         }
-</script>    
+    </script>
 }

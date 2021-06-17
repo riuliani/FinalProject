@@ -31,6 +31,12 @@ namespace Brdy.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public async Task<IActionResult> GetRecentAsync(double lat, double lon)
+        {
+            var result = await _service.GetRecentAsync(lat, lon);
+            return View(result/*result.OrderByDescending(x => x.howMany).Take(50)*/);
+        }
 
         [HttpGet]
         public async Task<IActionResult> SearchBirdByLocation(SightingDetail model)
@@ -44,11 +50,5 @@ namespace Brdy.Controllers
             var result = await _service.GetSpeciesAsync(model.comName);
             return View(result);
         }
-
-        //public async Task<IActionResult> Recent(SightingDetail model)
-        //{
-        //    var result = await _service.GetRecentAsync(model.lat, model.obsValid);
-        //    return View(result);
-        //}
     }
 }
