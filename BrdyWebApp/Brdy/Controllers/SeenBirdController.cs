@@ -54,7 +54,6 @@ namespace Brdy.Controllers
         {
             var userId = _userManager.GetUserId(User);
             return View(await _context.SeenBirds.Where(X => X.User.Id == userId).ToListAsync());
-            //return View(await _context.SeenBirds.ToListAsync());
         }       
     }
 }

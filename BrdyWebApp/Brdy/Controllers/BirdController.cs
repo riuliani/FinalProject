@@ -35,7 +35,7 @@ namespace Brdy.Controllers
         public async Task<IActionResult> GetRecentAsync(double lat, double lon)
         {
             var result = await _service.GetRecentAsync(lat, lon);
-            return View(result/*result.OrderByDescending(x => x.howMany).Take(50)*/);
+            return View(result.OrderByDescending(x => x.howMany).Take(50));
         }
 
         [HttpGet]

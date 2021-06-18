@@ -38,9 +38,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.lng)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.obsValid)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -71,17 +68,13 @@
                     @Html.DisplayFor(modelItem => item.lng)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.obsValid)
-                </td>
-                <td>
                     @Html.ActionLink("Wish List", "Wish", "WishList", new { CommonName = item.comName }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                     @Html.ActionLink("Seen Bird", "Seen", "SeenBird", new { CommonName = item.comName, ScientificName = item.sciName, Latitude = item.lat, Longitude = item.lng })
                 </td>
             </tr>
         }
     </tbody>
-</table>
+ </table>
 
 @section Scripts {
     @{
