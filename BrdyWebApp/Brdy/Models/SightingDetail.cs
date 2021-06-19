@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Brdy.Models
 {
@@ -31,5 +27,7 @@ namespace Brdy.Models
         public bool obsReviewed { get; set; }
         public bool locationPrivate { get; set; }
         public string subId { get; set; }
+        [Display(Name ="Add To")]
+        public string AddTo { get; set; }
     }
 }

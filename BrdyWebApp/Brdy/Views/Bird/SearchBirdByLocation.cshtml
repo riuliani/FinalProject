@@ -17,26 +17,29 @@
     <thead>
         <tr>
 
-            <th>
+            <th align="center">
                 @Html.DisplayNameFor(model => model.comName)
             </th>
-            <th>
+            <th align="center">
                 @Html.DisplayNameFor(model => model.sciName)
             </th>
-            <th>
+            <th align="center">
                 @Html.DisplayNameFor(model => model.locName)
             </th>
-            <th>
+            <th align="center">
                 @Html.DisplayNameFor(model => model.obsDt)
             </th>
-            <th>
+            <th align="center">
                 @Html.DisplayNameFor(model => model.howMany)
             </th>
-            <th>
+            <th align="center">
                 @Html.DisplayNameFor(model => model.lat)
             </th>
-            <th>
+            <th align="center">
                 @Html.DisplayNameFor(model => model.lng)
+            </th>
+            <th align="center">
+                @Html.DisplayNameFor(model => model.AddTo)
             </th>
             <th></th>
         </tr>
@@ -46,30 +49,30 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
+                <td align="center">
                     @Html.DisplayFor(modelItem => item.comName)
                 </td>
-                <td>
+                <td align="center">
                     @Html.DisplayFor(modelItem => item.sciName)
                 </td>
-                <td>
+                <td align="center">
                     @Html.DisplayFor(modelItem => item.locName)
                 </td>
-                <td>
+                <td align="center">
                     @Html.DisplayFor(modelItem => item.obsDt)
                 </td>
-                <td>
+                <td align="center">
                     @Html.DisplayFor(modelItem => item.howMany)
                 </td>
-                <td>
+                <td align="center">
                     @Html.DisplayFor(modelItem => item.lat)
                 </td>
-                <td>
+                <td align="center">
                     @Html.DisplayFor(modelItem => item.lng)
                 </td>
-                <td>
-                    @Html.ActionLink("Wish List", "Wish", "WishList", new { CommonName = item.comName }) |
-                    @Html.ActionLink("Seen Bird", "Seen", "SeenBird", new { CommonName = item.comName, ScientificName = item.sciName, Latitude = item.lat, Longitude = item.lng })
+                <td align="center">
+                    @Html.ActionLink("Wish List", "Wish", "WishList", new { CommonName = item.comName })
+                    @Html.ActionLink("Seen List", "Seen", "SeenBird", new { CommonName = item.comName, ScientificName = item.sciName, Latitude = item.lat, Longitude = item.lng })
                 </td>
             </tr>
         }
@@ -94,7 +97,7 @@
                 @:new google.maps.Marker({
                 @:    position: { lat: @item.lat, lng: @item.lng },
                 @:    map,
-                @:    title: "Hello World!",
+                @:    title: "@item.comName",
                 @:});
             }
         }

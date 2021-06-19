@@ -55,5 +55,31 @@ namespace Brdy.Controllers
             var userId = _userManager.GetUserId(User);
             return View(await _context.WishList.Where(X => X.User.Id == userId).ToListAsync());            
         }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var wishList = await _context.WishList.FirstOrDefaultAsync(x => x.Id == id);
+
+            if(wishList == null)
+            {
+                return NotFound();
+            }
+            return View(wishList);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var bird = await _context.WishList.FindAsync(id);
+            _context.WishList.Remove(bird);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(DisplayWishList));
+        }
     }
 }
