@@ -56,6 +56,11 @@ namespace Brdy.Controllers
             return View(await _context.SeenBirds.Where(X => X.User.Id == userId).ToListAsync());
         }
 
+        public async Task<IActionResult> AllSeenList()
+        {
+            return View(await _context.SeenBirds.ToListAsync());
+        }
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
