@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Brdy.Models.SightingDetail>
+
+@{
+    ViewData["Title"] = "GetRecentAsync";
+}
+
+<h1>GetRecentAsync</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+    <div id="map"></div>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th align="center">
+                @Html.DisplayNameFor(model => model.comName)
+            </th>
+            <th align="center">
+                @Html.DisplayNameFor(model => model.sciName)
+            </th>
+            <th align="center">
+                @Html.DisplayNameFor(model => model.locName)
+            </th>
+            <th align="center">
+                @Html.DisplayNameFor(model => model.obsDt)
+            </th>
+            <th align="center">
+                @Html.DisplayNameFor(model => model.howMany)
+            </th>
+            <th align="center">
+                @Html.DisplayNameFor(model => model.lat)
+            </th>
+            <th align="center">
+                @Html.DisplayNameFor(model => model.lng)
+            </th>
+            <th align="center">
+                @Html.DisplayNameFor(model => model.AddTo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td align="center">
+                    @Html.DisplayFor(modelItem => item.comName)
+                </td>
+                <td align="center">
+                    @Html.DisplayFor(modelItem => item.sciName)
+                </td>
+                <td align="center">
+                    @Html.DisplayFor(modelItem => item.locName)
+                </td>
+                <td align="center">
+                    @Html.DisplayFor(modelItem => item.obsDt)
+                </td>
+                <td align="center">
+                    @Html.DisplayFor(modelItem => item.howMany)
+                </td>
+                <td align="center">
+                    @Html.DisplayFor(modelItem => item.lat)
+                </td>
+                <td align="center">
+                    @Html.DisplayFor(modelItem => item.lng)
+                </td>
+                <td align="center">
+                    @Html.ActionLink("Wish List", "Wish", "WishList", new { CommonName = item.comName })
+                    @Html.ActionLink("Seen List", "Seen", "SeenBird", new { CommonName = item.comName, ScientificName = item.sciName, Latitude = item.lat, Longitude = item.lng })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    @{
+        var first = Model.First();
+    }
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqIdprb3rLozalirJ1Ubfc4x15U0unu8U&callback=initMap&libraries=&v=weekly"
+            async></script>
+
+    <script type="text/javascript">
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 6,
+                center: { lat: @first.lat, lng: @first.lng },
+            });
+            @foreach (var item in Model)
+            {
+                @:new google.maps.Marker({
+                @:    position: { lat: @item.lat, lng: @item.lng },
+                @:    map,
+                @:    title: "@item.comName",
+                @:});
+            }
+        }
+    </script>
+}

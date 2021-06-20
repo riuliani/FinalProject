@@ -46,28 +46,17 @@
     <input placeholder="Enter Location" asp-for="locName" />
     <input type="submit" value="Search" class="btn btn-primary btn-sm" />
 </form>
-<form asp-controller="Bird" asp-action="GetRecentAsync" method="get">
-    <label asp-for="locName"></label>
-    <input id=“lat”  placeholder="Enter Lattitude" asp-for="locName" />
-    <input id=“lon”  placeholder="Enter Longitude" asp-for="locName" />
+<form asp-controller="Bird" asp-action="SearchByLatandLng" method="get">
+    <label asp-for="lat"></label>
+    <input id=“lat”  placeholder="Enter Lattitude" asp-for="lat" />
+    <label asp-for="lng"></label>
+    <input id=“lon”  placeholder="Enter Longitude" asp-for="lng" />
     <input type="submit" value="Search" class="btn btn-primary btn-sm" />
 </form>
-@*<button onclick=“getLocation()“>Get Lat and Lon</button>*@
+<button onclick="getLocation()">Get Lat and Lon</button>
 
 
 @*Maybe a example card to show how to search*@
-<div class="card" style="width: 18rem;">
-    <h5 class="card-title">Search by Location</h5>
-    <h6 class=“card-subtitle mb-2 text-muted”>Examples</h6>
-    <ul>
-        <li>US-MI</li>
-        <li>US-AL</li>
-        <li>US-AK</li>
-    </ul>
-</div>
-</div>
-
-@*Maybe recent sighting*@
 <div class="card" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title">Search by Location</h5>
@@ -77,7 +66,7 @@
             <li>US-AL</li>
             <li>US-AK</li>
         </ul>
-    </div>
+    </div>    
 </div>
 
 @*Quick Add feature?*@
@@ -97,10 +86,12 @@
 {
     <script type="text/javascript">
         $(document).ready(() => {
-            var x = document.getElementById("lat");
-            var y = document.getElementById("lon");
+            
 
             function getLocation() {
+
+                var x = document.getElementById("lat");
+                var y = document.getElementById("lon");
 
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(showPosition);
