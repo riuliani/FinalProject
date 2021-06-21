@@ -1,14 +1,11 @@
 ﻿@model IEnumerable<Brdy.Data.Models.WishList>
 
 @{
-    ViewData["Title"] = "Wish List";
+    ViewData["Title"] = "AllWishList";
 }
 
-<h1>Wish List</h1>
+<h1>All Users Wish List</h1>
 
-<p>
-    <a asp-action="Wish">Add a bird to your wish list</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -23,9 +20,6 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.CommonName)
-            </td>
-            <td>
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }

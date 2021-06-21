@@ -54,7 +54,37 @@ namespace Brdy.Controllers
         {
             var userId = _userManager.GetUserId(User);
             return View(await _context.SeenBirds.Where(X => X.User.Id == userId).ToListAsync());
-            //return View(await _context.SeenBirds.ToListAsync());
-        }       
+        }
+
+        public async Task<IActionResult> AllSeenList()
+        {
+            return View(await _context.SeenBirds.ToListAsync());
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var seenList = await _context.SeenBirds.FirstOrDefaultAsync(x => x.BirdId == id);
+
+            if (seenList == null)
+            {
+                return NotFound();
+            }
+            return View(seenList);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var bird = await _context.SeenBirds.FindAsync(id);
+            _context.SeenBirds.Remove(bird);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(SeenList));
+        }
     }
 }

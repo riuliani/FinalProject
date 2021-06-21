@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using Brdy.Data;
+using Brdy.Models;
 using Brdy.Data.Models;
 using Brdy.Services;
 using Microsoft.AspNetCore.Identity;
@@ -24,18 +25,23 @@ namespace Brdy.Controllers
             _service = service;
             _context = context;
             _userManager = userManager;
+
         }
-        public IActionResult Wish()
-        {
-            return View();
+        public IActionResult Wish(WishListBirds model)
+        {            
+            return View(model);
         }
+
         [HttpPost]
-        public async  Task<IActionResult> AddToWishList(WishList model)
+        public async Task<IActionResult> AddToWishList(WishList model)
         {
             var bird = new WishList();
+            var user = await _userManager.GetUserAsync(User);
+
             if (ModelState.IsValid)
             {
                 bird.CommonName = model.CommonName;
+                bird.User = user;
             }
 
             _context.WishList.Add(bird);
@@ -46,10 +52,39 @@ namespace Brdy.Controllers
 
         public async Task<IActionResult> DisplayWishList()
         {
-            //var userId = _userManager.GetUserId(User);
-            //return View(await _context.WishList.Where(X => X.User.Id == userId).ToListAsync());
+            var userId = _userManager.GetUserId(User);
+            return View(await _context.WishList.Where(X => X.User.Id == userId).ToListAsync());            
+        }
 
+        public async Task<IActionResult> AllWishList()
+        {
             return View(await _context.WishList.ToListAsync());
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var wishList = await _context.WishList.FirstOrDefaultAsync(x => x.Id == id);
+
+            if(wishList == null)
+            {
+                return NotFound();
+            }
+            return View(wishList);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var bird = await _context.WishList.FindAsync(id);
+            _context.WishList.Remove(bird);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(DisplayWishList));
         }
     }
 }

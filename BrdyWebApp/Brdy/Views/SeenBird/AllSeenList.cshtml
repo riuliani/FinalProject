@@ -1,14 +1,11 @@
 ﻿@model IEnumerable<Brdy.Data.Models.SeenBirds>
 
 @{
-    ViewData["Title"] = "Seen List";
+    ViewData["Title"] = "AllSeenList";
 }
 
-<h1>Seen List</h1>
+<h1>All Users Seen Birds</h1>
 
-<p>
-    <a asp-action="Seen">Add at bird you spotted</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -41,9 +38,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Longitude)
-            </td>
-            <td>
-                <a asp-action="Delete" asp-route-id="@item.BirdId">Delete</a>
             </td>
         </tr>
 }

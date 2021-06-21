@@ -46,22 +46,12 @@
     <input placeholder="Enter Location" asp-for="locName" />
     <input type="submit" value="Search" class="btn btn-primary btn-sm" />
 </form>
-<form asp-controller="Bird" asp-action="GetRecentAsync" method="get">
-    <label asp-for="locName"></label>
-    @*Still dont know how i want to Display this*@
-    <input id="lat" placeholder="Enter Latitude" asp-for="lat" />
-    <input id="lon" Enter Longitude" asp-for="lng" />
-<<<<<<< HEAD
-    @*<p id="coords"></p>*@
-    <div>
-        <input type="submit" value="Search" class="btn btn-primary btn-sm" />
-    </div>    
-=======
-    <button id="but">Get Lat and Lon</button>
-    <p id="coords"></p>
-
+<form asp-controller="Bird" asp-action="SearchByLatandLng" method="get">
+    <label asp-for="lat"></label>
+    <input id=“lat”  placeholder="Enter Lattitude" asp-for="lat" />
+    <label asp-for="lng"></label>
+    <input id=“lon”  placeholder="Enter Longitude" asp-for="lng" />
     <input type="submit" value="Search" class="btn btn-primary btn-sm" />
->>>>>>> 217ea0b24826c2a2a360785413b1025d11192601
 </form>
 <button onclick="getLocation()">Get Lat and Lon</button>
 
@@ -69,78 +59,49 @@
 @*Maybe a example card to show how to search*@
 <div class="card" style="width: 18rem;">
     <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-    </div>
-</div>
-
-@*Maybe recent sighting*@
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">Recent Sightings</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-    </div>
+        <h5 class="card-title">Search by Location</h5>
+        <h6 class=“card-subtitle mb-2 text-muted”>Examples</h6>
+        <ul>
+            <li>US-MI</li>
+            <li>US-AL</li>
+            <li>US-AK</li>
+        </ul>
+    </div>    
 </div>
 
 @*Quick Add feature?*@
 <div class="card" style="width: 18rem;">
     <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
+        <h5 class="card-title">Search by Lat an Lon</h5>
+        <h6 class=“card-subtitle mb-2 text-muted”>Examples</h6>
+        <ul>
+            <li>40.88 89.23</li>
+            <li>23.56 78.34</li>
+            <li>67.99 54.22</li>
+        </ul>
     </div>
 </div>
-<script>IDBCursor
-
-    let x = document.getElementById("lat");
-    let y = document.getElementById("lon");
-    let button = document.getElementById("but").addEventListener("click", (e) => {
-        e.preventDefault();
-        console.log("Darrius");
-        getLocation();
-    })
-
-<<<<<<< HEAD
+<
 @section Scripts
 {
-<script type="text/javascript">
-    $(document).ready(() => {
-        var x = document.getElementById("lat");
-        var y = document.getElementById("lon");
+    <script type="text/javascript">
+        $(document).ready(() => {
+            
 
-=======
+            function getLocation() {
 
-    function getLocation() {
->>>>>>> 217ea0b24826c2a2a360785413b1025d11192601
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-            x.innerHTML = "Geolocation is not supported by this browser.";
-        }
+                var x = document.getElementById("lat");
+                var y = document.getElementById("lon");
 
-<<<<<<< HEAD
-        function showPosition(position) {
-            x.value = position.coords.latitude;
-            y.value = position.coords.longitude;
-        }
-    });
-</script>
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else {
+                    x.innerHTML = "Geolocation is not supported by this browser.";
+                }
 
+                function showPosition(position) {
+                    x.value = position.coords.latitude;
+                    y.value = position.coords.longitude;
+                };
+    </script>
 }
-=======
-    }
-
-    function showPosition(position) {
-        x.value = position.coords.latitude;
-
-        y.value = position.coords.longitude;
-    }
-
-
-}</script>
->>>>>>> 217ea0b24826c2a2a360785413b1025d11192601

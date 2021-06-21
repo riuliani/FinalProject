@@ -32,10 +32,10 @@ namespace Brdy.Controllers
             return View();
         }
         [HttpGet]
-        public async Task<IActionResult> GetRecentAsync(double lat, double lon)
+        public async Task<IActionResult> SearchByLatandLng(SightingDetail model)
         {
-            var result = await _service.GetRecentAsync(lat, lon);
-            return View(result/*result.OrderByDescending(x => x.howMany).Take(50)*/);
+            var result = await _service.GetRecentAsync(model.lat, model.lng);
+            return View(result.OrderByDescending(x => x.howMany).Take(50));
         }
 
         [HttpGet]
