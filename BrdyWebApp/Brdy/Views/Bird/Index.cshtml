@@ -3,6 +3,7 @@
     ViewData["Title"] = "Home Page";
 }
 
+
 <style>
 
     h1 {
@@ -48,12 +49,13 @@
 </form>
 <form asp-controller="Bird" asp-action="SearchByLatandLng" method="get">
     <label asp-for="lat"></label>
-    <input id=“lat”  placeholder="Enter Lattitude" asp-for="lat" />
+    <input id="lat"  placeholder="Enter Latitude" />
     <label asp-for="lng"></label>
-    <input id=“lon”  placeholder="Enter Longitude" asp-for="lng" />
+    <input id="lng"  placeholder="Enter Longitude" />
     <input type="submit" value="Search" class="btn btn-primary btn-sm" />
+    <label id="error"></label>
 </form>
-<button onclick="getLocation()">Get Lat and Lon</button>
+@*<button onclick="getLocation()">Get Lat and Lon</button>*@
 
 
 @*Maybe a example card to show how to search*@
@@ -81,27 +83,29 @@
         </ul>
     </div>
 </div>
-<
+
 @section Scripts
 {
     <script type="text/javascript">
         $(document).ready(() => {
-            
 
-            function getLocation() {
+            //function getLocation() {
 
-                var x = document.getElementById("lat");
-                var y = document.getElementById("lon");
+            let error = document.getElementById("error");
+            let x = document.getElementById("lat");
+            let y = document.getElementById("lng");
 
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(showPosition);
-                } else {
-                    x.innerHTML = "Geolocation is not supported by this browser.";
-                }
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                error.innerHTML = "Geolocation is not supported by this browser.";
+            }
 
-                function showPosition(position) {
-                    x.value = position.coords.latitude;
-                    y.value = position.coords.longitude;
-                };
+            function showPosition(position) {
+                x.value = position.coords.latitude;
+                y.value = position.coords.longitude;
+            };
+            //}
+        });
     </script>
 }
