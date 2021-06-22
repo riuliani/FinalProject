@@ -5,7 +5,6 @@
 }
 
 
-@*Probably name something else*@
 <h1 style="display: flex; justify-content: center;">Location Results</h1>
 <div id="map"></div>
 
@@ -82,28 +81,18 @@
 
 @section Scripts {
     @{
-        //var first = new SightingDetail();
-        //var result = "";
-        //if (Model == null)
-        //{
-        //    result = "There are no birds in this area";
-        //}
-        //else
-        //{
         var first = Model.First();
 
-        //}
     }
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqIdprb3rLozalirJ1Ubfc4x15U0unu8U&callback=initMap&libraries=&v=weekly"
             async></script>
 
-    <script type="text/javascript">
+    <script type="text/javascript">     
 
-        @*et error = document.getElementById("error");
-        error.innerHTML = @result;*@
-
-        function initMap() {
-            const map = new google.maps.Map(document.getElementById("map"), {
+        function initMap()
+        {
+            const map = new google.maps.Map(document.getElementById("map"),
+            {
                 zoom: 6,
                 center: { lat: @first.lat, lng: @first.lng },
             });
