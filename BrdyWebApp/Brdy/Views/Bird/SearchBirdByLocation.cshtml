@@ -3,7 +3,12 @@
 @{
     ViewData["Title"] = "SearchBirdByLocation";
 }
+<style>
+    .table{
+        color : white;
+    }
 
+</style>
 
 <h1 style="display: flex; justify-content: center;">Location Results</h1>
 <div id="map"></div>
@@ -17,7 +22,7 @@
     <thead>
         <tr>
 
-            <th align="center">
+            <th align="center" >
                 @Html.DisplayNameFor(model => model.comName)
             </th>
             <th align="center">
