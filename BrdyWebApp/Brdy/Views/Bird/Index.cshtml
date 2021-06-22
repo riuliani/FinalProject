@@ -49,9 +49,9 @@
 </form>
 <form asp-controller="Bird" asp-action="SearchByLatandLng" method="get">
     <label asp-for="lat"></label>
-    <input id="lat"  placeholder="Enter Latitude" />
+    <input id="lat"  placeholder="Enter Latitude" asp-for="lat" />
     <label asp-for="lng"></label>
-    <input id="lng"  placeholder="Enter Longitude" />
+    <input id="lng"  placeholder="Enter Longitude" asp-for="lng"/>
     <input type="submit" value="Search" class="btn btn-primary btn-sm" />
     <label id="error"></label>
 </form>
