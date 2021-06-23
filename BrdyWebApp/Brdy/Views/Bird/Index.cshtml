@@ -3,12 +3,14 @@
     ViewData["Title"] = "Home Page";
 }
 
+
 <style>
 
     h1 {
         position: relative;
         top: 50px;
     }
+
     .container {
         display: flex;
         justify-content: center;
@@ -24,16 +26,13 @@
     .card {
         position: relative;
         top: 450px;
+        color : black;
         display: inline-block;
-       
     }
 
-    input{
+    input {
         border-radius: 10px;
     }
-
-  
-   
 </style>
 
 
@@ -45,45 +44,62 @@
 
 <form asp-controller="Bird" asp-action="SearchBirdByLocation" method="get">
     <label asp-for="locName"></label>
-    @*Still dont know how i want to Display this*@
     <input placeholder="Enter Location" asp-for="locName" />
     <input type="submit" value="Search" class="btn btn-primary btn-sm" />
 </form>
-<form asp-controller="Bird" asp-action="Weather" method="get">
-    <label asp-for="locName"></label>
-    @*Still dont know how i want to Display this*@
-    <input placeholder="Enter Latitude" asp-for="lat" />
-    <input placeholder="Enter Longitude" asp-for="lng" />
+<form asp-controller="Bird" asp-action="SearchByLatandLng" method="get">
+    <label asp-for="lat"></label>
+    <input id="lat"  placeholder="Enter Latitude" asp-for="lat" />
+    <label asp-for="lng"></label>
+    <input id="lng"  placeholder="Enter Longitude" asp-for="lng"/>
     <input type="submit" value="Search" class="btn btn-primary btn-sm" />
+    <label id="error"></label>
 </form>
 
 
-@*Maybe a example card to show how to search*@
 <div class="card" style="width: 18rem;">
     <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        
+        <h5 class="card-title">Search by Location</h5>
+        <h6 class=“card-subtitle mb-2 text-muted”>Examples</h6>
+        <ul>
+            <li>US-MI</li>
+            <li>US-AL</li>
+            <li>US-AK</li>
+        </ul>
+    </div>    
+</div>
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Search by Lat an Lon</h5>
+        <h6 class=“card-subtitle mb-2 text-muted”>Examples</h6>
+        <ul>
+            <li>40.88 89.23</li>
+            <li>23.56 78.34</li>
+            <li>67.99 54.22</li>
+        </ul>
     </div>
 </div>
 
-@*Maybe recent sighting*@
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">Recent Sightings</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        
-    </div>
-</div>
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(() => {
 
-@*Quick Add feature?*@
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        
-    </div>
-</div>
+            let error = document.getElementById("error");
+            let x = document.getElementById("lat");
+            let y = document.getElementById("lng");
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                error.innerHTML = "Geolocation is not supported by this browser.";
+            }
+
+            function showPosition(position) {
+                x.value = position.coords.latitude;
+                y.value = position.coords.longitude;
+            };
+        });
+    </script>
+}

@@ -1,28 +1,24 @@
 ﻿@model IEnumerable<Brdy.Models.SightingDetail>
 
 @{
-    ViewData["Title"] = "SearchBirdByLocation";
+    ViewData["Title"] = "GetRecentAsync";
 }
 <style>
-    .table{
-        color : white;
+    .table {
+        color: white;
     }
-
 </style>
-
-<h1 style="display: flex; justify-content: center;">Location Results</h1>
-<div id="map"></div>
-
-<label id="error"></label>
+<h1>GetRecentAsync</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
+    <div id="map"></div>
 </p>
 <table class="table">
     <thead>
         <tr>
 
-            <th align="center" >
+            <th align="center">
                 @Html.DisplayNameFor(model => model.comName)
             </th>
             <th align="center">
@@ -82,22 +78,18 @@
             </tr>
         }
     </tbody>
- </table>
+</table>
 
 @section Scripts {
     @{
         var first = Model.First();
-
     }
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqIdprb3rLozalirJ1Ubfc4x15U0unu8U&callback=initMap&libraries=&v=weekly"
             async></script>
 
-    <script type="text/javascript">     
-
-        function initMap()
-        {
-            const map = new google.maps.Map(document.getElementById("map"),
-            {
+    <script type="text/javascript">
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 6,
                 center: { lat: @first.lat, lng: @first.lng },
             });

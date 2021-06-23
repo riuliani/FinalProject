@@ -13,5 +13,8 @@ namespace Brdy.Data
 
         [PersonalData]
         public string LastName { get; set; }
+        [PersonalData]
+        public int Age { get; set; }
+
     }
 }

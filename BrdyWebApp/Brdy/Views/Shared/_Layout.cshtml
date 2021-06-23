@@ -9,31 +9,35 @@
     <link rel="stylesheet" href="~/css/Home.css" />
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <style>
+        .BackgroundColor {
+            background-position: center center;
+            background-image: url("/css/Background.jpg");     
+            color : white;
+        }        
     </style>
 </head>
 
-@*background="/css/nature.jpg" style="background-size: cover; background-repeat: no-repeat;*@
-<body style=" background-color: #F6F0ED;
-">
-
-
-
+<body class="BackgroundColor">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <img src="/css/bird.png" />
+        <img href src="/css/bird.png" />
 
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-
-                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Spottings">Spottings</a>
-                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
-
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="SeenBird" asp-action="Seen">Seen</a>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="WishList" asp-action="Wish">Wishlist</a>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Bird" asp-action="Index">Search for Birds</a>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="SeenBird" asp-action="AllSeenList">All Seen Birds</a>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="WishList" asp-action="AllWishList">All Wish List</a>
+                }
+                <partial name="_LoginPartial" />
             </div>
         </div>
     </nav>
@@ -49,8 +53,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqIdprb3rLozalirJ1Ubfc4x15U0unu8U&callback=initMap&libraries=&v=weekly"
-            async></script>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

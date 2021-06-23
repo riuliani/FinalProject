@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Brdy.Models;
 
 namespace Brdy.Data
 {
@@ -14,9 +15,9 @@ namespace Brdy.Data
         {
         }
 
-        public DbSet<BirdList> Birds { get; set; }
-        public DbSet<Location> Locations { get; set; }
-        public DbSet<Weather> Weather { get; set; }
+        public DbSet<SeenBirds> SeenBirds { get; set; }
+        public DbSet<WishList> WishList { get; set; }
+        public DbSet<Brdy.Models.BirdsSeenViewModel> BirdsSeenViewModel { get; set; }
 
     }
 }
