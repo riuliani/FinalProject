@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Brdy.Data;
 using Brdy.Models;
@@ -43,6 +44,12 @@ namespace Brdy.Controllers
         {
             var result = await _service.GetLocationAsync(model.locName);
             return View(result.OrderByDescending(x => x.howMany).Take(50));
+        }
+        [HttpGet]
+        public async Task<IActionResult> SearchBirdBySpecies(SightingDetail model)
+        {
+            var result = await _service.GetSpeciesAsync(model.comName);
+            return View(result);
         }
     }
 }
