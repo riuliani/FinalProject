@@ -26,6 +26,7 @@
     .card {
         position: relative;
         top: 450px;
+        color : black;
         display: inline-block;
     }
 
@@ -45,7 +46,6 @@
 
 <form asp-controller="Bird" asp-action="SearchBirdByLocation" method="get">
     <label asp-for="locName"></label>
-    @*Still dont know how i want to Display this*@
     <input placeholder="Enter Location" asp-for="locName" />
     <input type="submit" value="Search" class="btn btn-primary btn-sm" />
 </form>
@@ -57,10 +57,8 @@
     <input type="submit" value="Search" class="btn btn-primary btn-sm" />
     <label id="error"></label>
 </form>
-@*<button onclick="getLocation()">Get Lat and Lon</button>*@
 
 
-@*Maybe a example card to show how to search*@
 <div class="card" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title">Search by Location</h5>
@@ -73,7 +71,6 @@
     </div>    
 </div>
 
-@*Quick Add feature?*@
 <div class="card" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title">Search by Lat an Lon</h5>
@@ -91,8 +88,6 @@
     <script type="text/javascript">
         $(document).ready(() => {
 
-            //function getLocation() {
-
             let error = document.getElementById("error");
             let x = document.getElementById("lat");
             let y = document.getElementById("lng");
@@ -107,7 +102,6 @@
                 x.value = position.coords.latitude;
                 y.value = position.coords.longitude;
             };
-            //}
         });
     </script>
 }

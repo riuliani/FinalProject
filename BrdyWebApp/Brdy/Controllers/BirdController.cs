@@ -51,12 +51,5 @@ namespace Brdy.Controllers
             var result = await _service.GetSpeciesAsync(model.comName);
             return View(result);
         }
-
-        //public IActionResult Species()
-        //{
-        //    List<SightingDetail> speciesList = new List<SightingDetail>();
-        //    speciesList = (from speciesCode in _context)
-        //}
-
     }
 }
