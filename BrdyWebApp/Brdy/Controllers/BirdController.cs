@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Brdy.Data;
 using Brdy.Models;
@@ -50,5 +51,12 @@ namespace Brdy.Controllers
             var result = await _service.GetSpeciesAsync(model.comName);
             return View(result);
         }
+
+        //public IActionResult Species()
+        //{
+        //    List<SightingDetail> speciesList = new List<SightingDetail>();
+        //    speciesList = (from speciesCode in _context)
+        //}
+
     }
 }
