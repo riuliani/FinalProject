@@ -7,8 +7,10 @@
 <style>
 
     h1 {
-        position: relative;
-        top: 50px;
+        /* position: relative;
+        top: 50px;*/
+        display: flex;
+        justify-content: center;
     }
 
     .container {
@@ -17,17 +19,21 @@
     }
 
     form {
+        justify-content: center;
         position: relative;
         top: 250px;
         align-items: center;
-        left: 250px;
+        left: 0px;
+        display: inline-block;
     }
 
     .card {
         position: relative;
-        top: 450px;
+        top: 300px;
         color : black;
+        left : 100px;
         display: inline-block;
+        justify-content: center;
     }
 
     input {
@@ -42,21 +48,22 @@
 
 </div>
 
-@*<asp:DropDownList></asp:DropDownList>*@
+<div>
+    <form asp-controller="Bird" asp-action="SearchBirdByLocation" method="get">
+        <label asp-for="locName"></label>
+        <input placeholder="Enter Location" asp-for="locName" />
+        <input type="submit" value="Search" class="btn btn-primary btn-sm" />
+    </form>
+    <form asp-controller="Bird" asp-action="SearchByLatandLng" method="get">
+        <label asp-for="lat"></label>
+        <input id="lat" placeholder="Enter Latitude" asp-for="lat" />
+        <label asp-for="lng"></label>
+        <input id="lng" placeholder="Enter Longitude" asp-for="lng" />
+        <input type="submit" value="Search" class="btn btn-primary btn-sm" />
+        <label id="error"></label>
+    </form>
+</div>
 
-<form asp-controller="Bird" asp-action="SearchBirdByLocation" method="get">
-    <label asp-for="locName"></label>
-    <input placeholder="Enter Location" asp-for="locName" />
-    <input type="submit" value="Search" class="btn btn-primary btn-sm" />
-</form>
-<form asp-controller="Bird" asp-action="SearchByLatandLng" method="get">
-    <label asp-for="lat"></label>
-    <input id="lat"  placeholder="Enter Latitude" asp-for="lat" />
-    <label asp-for="lng"></label>
-    <input id="lng"  placeholder="Enter Longitude" asp-for="lng"/>
-    <input type="submit" value="Search" class="btn btn-primary btn-sm" />
-    <label id="error"></label>
-</form>
 
 
 <div class="card" style="width: 18rem;">
