@@ -7,6 +7,13 @@
         top: 250px;
         background-color: #585959;
     }
+    .welcome{
+       text-align: center;
+       padding: 50px;
+    }
+    .div.one{
+        color:beige;
+    }
 </style>
 
 
@@ -23,6 +30,6 @@
 
 @if(User.Identity.IsAuthenticated)
 {
-    <h1>Welcome to Brdy!</h1>
+    <h1 class="welcome" >Welcome to Brdy!</h1>
 }
 

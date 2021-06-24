@@ -4,48 +4,46 @@
     ViewData["Title"] = "SearchBirdByLocation";
 }
 <style>
-    .table{
+    .table {
         color: white;
         background-color: black;
         opacity: 0.7;
+    }
+    .tr {
+        width: 50px;
     }
 </style>
 
 <h1 style="display: flex; justify-content: center;">Location Results</h1>
 <div id="map"></div>
 
-<label id="error"></label>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <div>
     <table class="table">
         <thead>
-            <tr>
+            <tr class="tr">
 
-                <th align="center">
+                <th>
                     @Html.DisplayNameFor(model => model.comName)
                 </th>
-                <th align="center">
+                <th >
                     @Html.DisplayNameFor(model => model.sciName)
                 </th>
-                <th align="center">
+                <th>
                     @Html.DisplayNameFor(model => model.locName)
                 </th>
-                <th align="center">
+                <th>
                     @Html.DisplayNameFor(model => model.obsDt)
                 </th>
-                <th align="center">
+                <th>
                     @Html.DisplayNameFor(model => model.howMany)
                 </th>
-                <th align="center">
+                <th>
                     @Html.DisplayNameFor(model => model.lat)
                 </th>
-                <th align="center">
+                <th>
                     @Html.DisplayNameFor(model => model.lng)
                 </th>
-                <th align="center">
+                <th>
                     @Html.DisplayNameFor(model => model.AddTo)
                 </th>
                 <th></th>
@@ -56,30 +54,30 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td align="center">
+                    <td>
                         @Html.DisplayFor(modelItem => item.comName)
                     </td>
-                    <td align="center">
+                    <td>
                         @Html.DisplayFor(modelItem => item.sciName)
                     </td>
-                    <td align="center">
+                    <td>
                         @Html.DisplayFor(modelItem => item.locName)
                     </td>
-                    <td align="center">
+                    <td>
                         @Html.DisplayFor(modelItem => item.obsDt)
                     </td>
-                    <td align="center">
+                    <td>
                         @Html.DisplayFor(modelItem => item.howMany)
                     </td>
-                    <td align="center">
+                    <td>
                         @Html.DisplayFor(modelItem => item.lat)
                     </td>
-                    <td align="center">
+                    <td>
                         @Html.DisplayFor(modelItem => item.lng)
                     </td>
                     <td align="center">
-                        @Html.ActionLink("Wish List", "Wish", "WishList", new { CommonName = item.comName })
-                        @Html.ActionLink("Seen List", "Seen", "SeenBird", new { CommonName = item.comName, ScientificName = item.sciName, Latitude = item.lat, Longitude = item.lng })
+                        @Html.ActionLink("WishList", "Wish", "WishList", new { CommonName = item.comName })
+                        @Html.ActionLink("SeenList", "Seen", "SeenBird", new { CommonName = item.comName, ScientificName = item.sciName, Latitude = item.lat, Longitude = item.lng })
                     </td>
                 </tr>
             }

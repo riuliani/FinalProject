@@ -27,5 +27,11 @@ body {
 }
 
 .jumbotron {
-    background-image: url('pea.jpg');
+    /*background-image: url('pea.jpg');*/
+    background-color:black;
+}
+.h1{
+    display:flex;
+    justify-content: center;
+    text-align:center;
 }
